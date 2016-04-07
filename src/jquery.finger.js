@@ -166,13 +166,14 @@
 		}
 
 		trigger(event, evtName, true);
+		trigger(event, 'dragend');
 	}
 
 	// initial binding
 	$.event.add(rootEl, startEvent + '.' + namespace, startHandler);
 
 	// expose events as methods
-	$.each('tap doubletap press drag flick'.split(' '), function(i, name) {
+	$.each('tap doubletap press drag flick dragend'.split(' '), function(i, name) {
 		$.fn[name] = function(fn) {
 			return fn ? this.on(name, fn) : this.trigger(name);
 		};
